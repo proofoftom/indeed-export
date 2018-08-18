@@ -9,7 +9,7 @@
       <md-card-content>
         <div class="md-layout-item">
           <md-field>
-            <label for="query">Job Title</label>
+            <label for="query">Search Terms</label>
             <md-input type="text" name="query" v-model="query" required/>
             <span class="md-error">This field is required</span>
           </md-field>
