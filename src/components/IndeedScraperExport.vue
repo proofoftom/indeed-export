@@ -3,7 +3,7 @@
     <md-card class="md-layout-item md-size-40 md-small-size-65 md-medium-size-50 md-xsmall-size-90">
 
       <md-card-header>
-        <div class="md-title">Search Job Postings</div>
+        <div class="md-title">Scrape Job Postings</div>
       </md-card-header>
 
       <md-card-content>
@@ -46,8 +46,8 @@
       </md-card-actions>
       <md-progress-spinner v-show="scraping" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" />
 
-      <md-card-actions v-if="jsonData !== null && jsonData.length > 0">
-        <download-csv :data="jsonData">
+      <md-card-actions v-if="jobs !== null && jobs.length > 0">
+        <download-csv :data="jobs">
           <md-button>
             Export To CSV
           </md-button>
@@ -73,7 +73,7 @@ export default {
       jobType: '',
       maxAge: 0,
       scraping: false,
-      jsonData: null,
+      jobs: null,
       showSnackbar: false,
     })
   },
@@ -85,24 +85,19 @@ export default {
         jobType: this.jobType,
         maxAge: this.maxAge,
         sort: 'date',
-        limit: '0',
+        limit: '50',
       };
 
-      this.jsonData = null;
+      this.jobs = null;
       this.scraping = true;
 
-      Indeed.query(queryOptions).then(res => {
+      Indeed.query(queryOptions).then(results => {
         this.scraping = false;
         this.showSnackbar = true;
-        this.saveResults(res); // An array of Job objects
+        this.jobs = results;
       });
     },
-    saveResults(res) {
-      this.jsonData = res;
-      // eslint-disable-next-line
-      console.log(this.jsonData, 'Done');
-    },
-    viewResults() {
+    displayJobs() {
       // Todo: Add display for results
     },
   },
