@@ -1,5 +1,5 @@
 <template>
-  <form class="md-layout">
+  <form class="">
     <md-card class="md-layout-item md-size-40 md-small-size-65 md-medium-size-50 md-xsmall-size-90">
 
       <md-card-header>
@@ -46,13 +46,29 @@
       </md-card-actions>
       <md-progress-spinner v-show="scraping" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" />
 
-      <md-card-actions v-if="jobs !== null && jobs.length > 0">
+      <md-card-actions v-if="resultsScraped">
         <download-csv :data="jobs">
           <md-button>
             Export To CSV
           </md-button>
         </download-csv>
       </md-card-actions>
+    </md-card>
+
+    <md-card class="md-layout-item md-size-90" v-if="resultsScraped">
+      <md-card-header>
+        <div class="md-title">Results</div>
+        <md-table>
+          <md-table-head>Company</md-table-head>
+          <md-table-head>Company URL</md-table-head>
+          <md-table-head>Job Title</md-table-head>
+          <md-table-row v-for="(job, index) in jobs" :key="index">
+            <md-table-cell> {{ job.company }} </md-table-cell>
+            <md-table-cell> {{ job.url }} </md-table-cell>
+            <md-table-cell> {{ job.title }} </md-table-cell>
+          </md-table-row>
+        </md-table>
+      </md-card-header>
     </md-card>
     
     <md-snackbar :md-duration="4000" :md-active.sync="showSnackbar" md-persistent>
@@ -77,6 +93,11 @@ export default {
       showSnackbar: false,
     })
   },
+  computed: {
+    resultsScraped() {
+      return (this.jobs !== null && this.jobs.length > 0);
+    }
+  },
   methods: {
     scrapeResults() {
       const queryOptions = {
@@ -100,6 +121,9 @@ export default {
     displayJobs() {
       // Todo: Add display for results
     },
+    getCompanyUrl() {
+      // Todo: Add scraping for getting company URL if provided
+    },
   },
 }
 </script>
@@ -108,9 +132,14 @@ export default {
 .md-card {
   margin: auto;
   padding-bottom: 20px;
+  margin: 20px auto;
 }
 
 .md-card-actions {
   display: inline;
+}
+
+.md-table-cell {
+  text-align: left;
 }
 </style>
