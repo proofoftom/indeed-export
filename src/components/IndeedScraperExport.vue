@@ -60,7 +60,7 @@
         <div class="md-title">Results</div>
         <md-table>
           <md-table-head>Company</md-table-head>
-          <md-table-head>Company URL</md-table-head>
+          <md-table-head>Job URL</md-table-head>
           <md-table-head>Job Title</md-table-head>
           <md-table-row v-for="(job, index) in jobs" :key="index">
             <md-table-cell> {{ job.company }} </md-table-cell>
