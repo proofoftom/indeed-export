@@ -1,5 +1,5 @@
 <template>
-  <form class="">
+  <form>
     <md-card class="md-layout-item md-size-40 md-small-size-65 md-medium-size-50 md-xsmall-size-90">
 
       <md-card-header>
@@ -72,7 +72,8 @@
     </md-card>
     
     <md-snackbar :md-duration="4000" :md-active.sync="showSnackbar" md-persistent>
-      <span>Results Scraped!</span>
+      <span v-if="resultsScraped">Results Scraped!</span>
+      <span v-else>An error occurred. Please make sure you entered a search term.</span>
     </md-snackbar>
   </form>
 </template>
