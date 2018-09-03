@@ -128,12 +128,6 @@ export default {
         this.jobs = results;
       });
     },
-    displayJobs() {
-      // Todo: Add display for results
-    },
-    getCompanyUrl() {
-      // Todo: Add scraping for getting company URL if provided
-    },
   },
 }
 </script>
