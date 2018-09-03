@@ -39,6 +39,14 @@
             <span class="md-suffix">Days</span>
           </md-field>
         </div>
+
+        <div class="md-layout-item">
+          <md-field>
+            <label for="maxAge">Limit</label>
+            <md-input type="number" name="maxAge" v-model="limit" />
+            <span class="md-suffix">Jobs</span>
+          </md-field>
+        </div>
       </md-card-content>
 
       <md-card-actions>
@@ -89,6 +97,7 @@ export default {
       location: '',
       jobType: '',
       maxAge: 0,
+      limit: 50,
       scraping: false,
       jobs: null,
       showSnackbar: false,
@@ -107,7 +116,7 @@ export default {
         jobType: this.jobType,
         maxAge: this.maxAge,
         sort: 'date',
-        limit: '50',
+        limit: this.limit,
       };
 
       this.jobs = null;
