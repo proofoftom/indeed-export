@@ -105,7 +105,7 @@ export default {
       location: 'United States',
       jobType: 'fulltime',
       maxAge: 90,
-      limit: 3000,
+      limit: 250,
       scraping: false,
       jobs: null,
       showSnackbar: false,
