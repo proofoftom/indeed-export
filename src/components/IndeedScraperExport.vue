@@ -58,7 +58,7 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button @click="scrapeResults">Scrape Results</md-button>
+        <md-button @click="scrapeResults">Gather Info</md-button>
       </md-card-actions>
       <md-progress-spinner v-show="scraping" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" />
 
@@ -105,7 +105,7 @@ export default {
       location: 'United States',
       jobType: 'fulltime',
       maxAge: 90,
-      limit: 25,
+      limit: 3000,
       scraping: false,
       jobs: null,
       showSnackbar: false,
