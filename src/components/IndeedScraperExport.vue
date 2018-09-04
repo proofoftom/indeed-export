@@ -101,10 +101,10 @@ export default {
   name: 'IndeedScraperExport',
   data() {
     return ({
-      query: 'Test',
-      location: '',
-      jobType: '',
-      maxAge: 0,
+      query: 'QA Automation Engineer',
+      location: 'United States',
+      jobType: 'fulltime',
+      maxAge: 90,
       limit: 25,
       scraping: false,
       jobs: null,
