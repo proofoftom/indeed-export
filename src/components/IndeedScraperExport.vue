@@ -63,7 +63,7 @@
       <md-progress-spinner v-show="scraping" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" />
 
       <md-card-actions v-if="resultsScraped">
-        <download-csv :data="jobs">
+        <download-csv :data="jobs" :fields="['company', 'url', 'jobtitle']" :labels="{company: 'Company', url: 'URL', jobtitle: 'Job Title'}">
           <md-button>
             Export To CSV
           </md-button>
@@ -76,7 +76,7 @@
         <div class="md-title">Results</div>
         <md-table>
           <md-table-head>Company</md-table-head>
-          <md-table-head>Job URL</md-table-head>
+          <md-table-head>URL</md-table-head>
           <md-table-head>Job Title</md-table-head>
           <md-table-row v-for="(job, index) in jobs" :key="index">
             <md-table-cell> {{ job.company }} </md-table-cell>
