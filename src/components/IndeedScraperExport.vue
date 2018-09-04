@@ -80,7 +80,7 @@
           <md-table-head>Job Title</md-table-head>
           <md-table-row v-for="(job, index) in jobs" :key="index">
             <md-table-cell> {{ job.company }} </md-table-cell>
-            <md-table-cell> {{ job.url }} </md-table-cell>
+            <md-table-cell> <a :href="job.url">Best Available Link</a> </md-table-cell>
             <md-table-cell> {{ job.jobtitle }} </md-table-cell>
           </md-table-row>
         </md-table>
