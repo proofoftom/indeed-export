@@ -9,6 +9,14 @@
       <md-card-content>
         <div class="md-layout-item">
           <md-field>
+            <label for="query">Publisher ID</label>
+            <md-input type="text" name="query" v-model="publisherId" required/>
+            <span class="md-error">This field is required</span>
+          </md-field>
+        </div>
+
+        <div class="md-layout-item">
+          <md-field>
             <label for="query">Search Terms</label>
             <md-input type="text" name="query" v-model="query" required/>
             <span class="md-error">This field is required</span>
@@ -73,7 +81,7 @@
           <md-table-row v-for="(job, index) in jobs" :key="index">
             <md-table-cell> {{ job.company }} </md-table-cell>
             <md-table-cell> {{ job.url }} </md-table-cell>
-            <md-table-cell> {{ job.title }} </md-table-cell>
+            <md-table-cell> {{ job.jobtitle }} </md-table-cell>
           </md-table-row>
         </md-table>
       </md-card-header>
@@ -93,14 +101,15 @@ export default {
   name: 'IndeedScraperExport',
   data() {
     return ({
-      query: '',
+      query: 'Test',
       location: '',
       jobType: '',
       maxAge: 0,
-      limit: 50,
+      limit: 25,
       scraping: false,
       jobs: null,
       showSnackbar: false,
+      publisherId: '',
     })
   },
   computed: {
@@ -117,6 +126,7 @@ export default {
         maxAge: this.maxAge,
         sort: 'date',
         limit: this.limit,
+        publisher: this.publisherId,
       };
 
       this.jobs = null;
