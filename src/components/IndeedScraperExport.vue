@@ -9,14 +9,6 @@
       <md-card-content>
         <div class="md-layout-item">
           <md-field>
-            <label for="query">Publisher ID</label>
-            <md-input type="text" name="query" v-model="publisherId" required/>
-            <span class="md-error">This field is required</span>
-          </md-field>
-        </div>
-
-        <div class="md-layout-item">
-          <md-field>
             <label for="query">Search Terms</label>
             <md-input type="text" name="query" v-model="query" required/>
             <span class="md-error">This field is required</span>
@@ -109,7 +101,7 @@ export default {
       scraping: false,
       jobs: null,
       showSnackbar: false,
-      publisherId: '',
+      publisherId: '3909011721306876',
     })
   },
   computed: {
