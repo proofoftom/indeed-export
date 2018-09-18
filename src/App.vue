@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <md-toolbar class="md-primary">
-      <h1>Indeed CSV Export</h1>
+      <h1>Indeed Export</h1>
     </md-toolbar>
     <IndeedScraperExport/>
   </div>

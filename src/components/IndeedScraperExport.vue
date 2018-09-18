@@ -50,15 +50,13 @@
       </md-card-content>
 
       <md-card-actions>
-        <md-button @click="scrapeResults">Gather Info</md-button>
+        <md-button @click="scrapeResults">Scrape</md-button>
       </md-card-actions>
       <md-progress-spinner v-show="scraping" :md-diameter="30" :md-stroke="3" md-mode="indeterminate" />
 
       <md-card-actions v-if="resultsScraped">
         <download-csv :data="jobs" :fields="['company', 'url', 'jobtitle']" :labels="{company: 'Company', url: 'URL', jobtitle: 'Job Title'}">
-          <md-button>
-            Export To CSV
-          </md-button>
+          <md-button>Export</md-button>
         </download-csv>
       </md-card-actions>
     </md-card>
