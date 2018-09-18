@@ -1,4 +1,4 @@
-# indeed-to-csv
+# indeed-export
 
 ## Project setup
 ```
