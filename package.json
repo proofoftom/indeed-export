@@ -1,5 +1,5 @@
 {
-  "name": "indeed-to-csv",
+  "name": "indeed-export",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,6 +9,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "express": "^4.16.3",
     "indeed-scraper": "^2.0.2",
     "request-promise": "^4.2.2",
     "vue": "^2.5.17",
